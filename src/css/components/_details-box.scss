@@ -1,0 +1,154 @@
+.details-box {
+    @include grid-column(1 of 5);
+    flex: 1 auto;
+    border: 2px solid transparent;
+    text-align: left;
+    position: relative;
+
+    &--completed {
+        border-color: $color-success;
+
+        .details-box__title {
+            color: $color-success;
+        }
+    }
+
+    &--failed {
+        border-color: $color-failed;
+
+        .details-box__title {
+            color: $color-failed;
+        }
+    }
+
+    &--running {
+        border-color: $color-running;
+
+        .details-box__title {
+            color: $color-running;
+        }
+    }
+
+    &--pending {
+        border-color: $color-pending;
+
+        .details-box__title {
+            border-color: $color-pending;
+        }
+    }
+
+    &:not(:first-child) {
+        margin-left: 15px;
+    }
+
+    &__title {
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    dd {
+        font-weight: 400;
+    }
+
+    dt {
+        // position: absolute;
+        margin-top: 7px;
+        bottom: 0;
+        word-wrap: break-word;
+        font-weight: 400;
+    }
+
+    &__row {
+        @include flex-grid-row($behavior: collapse, $width: 100%);
+        width: 100%;
+        // margin: auto;
+    }
+
+    &__column {
+        @include flex-grid-column($gutter: 0);
+        position: relative;
+        // height: 50px;
+        // width: 70px;
+        text-align: center;
+        vertical-align: middle;
+        float: left;
+        margin-top: 16px;
+        font-size: 13px;
+    }
+}
+
+.build__debug, 
+.build__release {
+    text-align: center;
+    margin-top: 16px;
+
+    .icon {
+        font-size: 45px;
+    }
+
+    .label {
+        margin-top: 1px;
+        font-size: 13px;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+}
+
+.build__time {
+    flex: 1 100%;
+    margin-top: 30px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.unit-test__test-result,
+.functional-test__test-result {
+    dt {
+        margin-top: -10px;
+    }
+
+    dd {
+        margin-top: 5px;
+        font-size: 35px;
+    }
+}
+
+.functional-test__coverage-result,
+.unit-test__coverage-result {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 35px;
+    background: #EAC184;
+
+    &:before {
+        background: rgba(0, 189, 58, 0.35);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 100%;
+    }
+
+    dd {
+        position: relative;
+        line-height: 23px;
+        font-size: 17px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.49);
+    }
+
+    dt {
+        position: relative;
+        font-size: 12px;
+        margin-top: -3px;
+        line-height: 13px;
+        font-weight: 700;
+    }
+}

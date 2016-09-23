@@ -1,0 +1,57 @@
+.metrics__arrow {
+    width: 30px; 
+    height: 23px; 
+    background: $color-warning; 
+    margin: auto;
+    // margin: 100px auto;
+
+    span {
+        color: white;
+    }
+
+    &:before {
+        content: "";
+        width: 0; 
+        height: 0; 
+        border-top: 18px solid transparent;
+        border-bottom: 18px solid transparent;
+        border-left: 18px solid $color-warning;
+        float: right;
+        margin-top: -7px;
+        margin-right: -17px;
+    }
+
+    &--improved {
+        background: $color-success;
+        transform: rotate(-90deg);
+        margin-top: 16px;
+
+        &:before {
+            border-left-color: $color-success;
+        }
+
+        span {
+            display: inline-block;
+            text-align: center;
+            transform: rotate(90deg);
+            margin-left: 12px;
+        }
+    }
+
+    &--deteriorated {
+        background: $color-failed;
+        transform: rotate(90deg);
+        margin-bottom: 23px;
+
+        &:before {
+            border-left-color: $color-failed;
+        }
+
+        span {
+            display: inline-block;
+            text-align: center;
+            transform: rotate(-90deg);
+            margin-left: 13px;
+        }
+    }
+}

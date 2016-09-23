@@ -1,0 +1,210 @@
+@import '_vars';
+
+@import 'critical';
+
+@import 'base/icomoon';
+@import 'components/progress-bar';
+@import 'components/details-box';
+@import 'components/metrics-arrow';
+
+.main {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.wrapper {
+    @include grid-column;
+    @include grid-row;
+}
+
+.item {
+    @include grid-column;
+    border: 2px solid gray;
+    margin: 5px 0;
+    padding-top: 5px;
+    text-align: center;
+
+    &--header {
+        overflow: hidden;
+        border-color: transparent;
+        background: #777;
+        color: white;
+    }
+
+    &__icon {
+        font-size: 27px;
+        font-family: 'icomoon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        @include grid-column(1 of 16);
+    }
+
+    &--firewall {
+        .item__icon:before {
+            content: "\e900";
+        }
+    }
+
+    &--build {
+        .item__icon:before {
+            content: "\e901";
+        }
+    }
+
+    &--pending {
+        border-color: $color-pending;
+
+        .item__state {
+            color: $color-pending;
+        }
+    }
+
+    &--rejected {
+        border-color: $color-failed;
+        background: lighten($color-failed, 40%);
+
+        .item__state {
+            color: $color-failed;
+        }
+    }
+
+    &--succeeded {
+        border-color: $color-success;
+        background: lighten($color-success, 40%);
+
+        .item__state {
+            color: $color-success;
+        }
+    }
+
+    &--running {
+        border-color: $color-running;
+        background: lighten($color-running, 40%);
+
+        .item__state {
+            color: $color-running;
+        }
+    }
+
+    &__icon {
+        @include grid-column(1 of 16);
+    }
+
+    &__id {
+        @include grid-column(2 of 16);
+    }
+
+    &__owner {
+        @include grid-column(1.6 of 16);
+
+        &:after {
+            content: "";
+            display: inline-block;
+        }
+    }
+
+    &__startTime {
+        @include grid-column(3 of 16);
+
+        &:after {
+            content: "";
+            display: inline-block;
+        }
+    }
+
+    &__state {
+        @include grid-column(2 of 16);
+    }
+
+    &__process {
+        @include grid-column(1.6 of 16);
+    }
+}
+
+.item__details {
+    @include grid-row;
+    padding: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    // -moz-transition: max-height .5s;
+    // -ms-transition: max-height .5s;
+    // -o-transition: max-height .5s;
+    // -webkit-transition: max-height .5s;
+    // max-height: 500px;
+    // overflow: hidden;
+
+    &--appear, &--leave {
+        height: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+}
+
+.item-row {
+    @include grid-row;
+    display: block;
+    min-height: 45px;
+    color: #000 !important;
+
+    &--active {
+        .item__process {
+            visibility: hidden;
+        }
+    }
+}
+
+.item__process {
+    &--running {
+        .progress-bar__offset {
+            background: $color-running;
+        }
+    }
+
+    &--failed {
+        .progress-bar__offset {
+            background: $color-failed;
+        }
+    }
+
+    &--completed {
+        .progress-bar__offset {
+            background: $color-success;
+        }
+    }
+}
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+

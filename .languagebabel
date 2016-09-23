@@ -1,0 +1,5 @@
+{
+  "transpileOnSave": false,
+  "disableWhenNoBabelrcFileInPath": true,
+  "projectRoot": true
+}

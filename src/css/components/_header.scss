@@ -1,0 +1,29 @@
+.app-header {
+  background-color: $theme-blue;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  display: flex;
+  color: white;
+  height: 50px;
+  width: 100%;
+  z-index: 5;
+  left: 0;
+  top: 0;
+}
+
+.app-title, .app-subtitle {
+  align-items: center;
+  padding-left: 10px;
+  display: flex;
+  margin: 0;
+}
+
+.app-title {
+  font-size: 24px;
+}
+
+.app-subtitle {
+  font-weight: normal;
+  font-size: 12px;
+}
