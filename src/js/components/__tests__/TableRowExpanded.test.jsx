@@ -2,11 +2,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import TableRowExpanded from 'js/components/TableRowExpanded';
+import InitialData from 'js/consts/data';
 
 describe('Component: TableRowExpanded', () => {
+  const baseProps = {
+    item: InitialData[1]
+  };
+
   it('renders without exploding', () => {
     expect(
-      shallow(<TableRowExpanded {...minProps} />).length
+      shallow(<TableRowExpanded {...baseProps} />).length
     ).toEqual(1);
   });
 });

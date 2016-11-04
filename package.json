@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp serve & gulp start",
     "dist": "rm -rf dist; webpack -p --progress --config webpack.production.js; gulp dist;",
-    "test": "eslint src/js/**/*.js; jest"
+    "test": "jest"
   },
   "keywords": [
     "react",

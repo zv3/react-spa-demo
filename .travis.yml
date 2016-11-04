@@ -26,7 +26,7 @@ deploy:
   secret_access_key: $AWS_SECRET_KEY
   bucket: dzv3
   endpoint: dzv3.s3-website-us-east-1.amazonaws.com
-  upload-dir: crossover-test
+  upload-dir: sfe-crossover-test
   local-dir: dist
   region: us-east-1
   acl: public_read
