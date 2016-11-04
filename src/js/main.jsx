@@ -1,10 +1,9 @@
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { render } from 'react-dom';
 import React from 'react';
-import { HashRouter } from 'react-router';
 import App from 'js/components/App';
-import AppStore from 'js/store';
 import InitialData from 'js/consts/data';
+import appStore from 'js/store';
 import { Provider } from 'react-redux';
 
 // Needed for onTouchTap, Check this repo:
@@ -12,12 +11,9 @@ import { Provider } from 'react-redux';
 injectTapEventPlugin();
 
 // Initialize the app
-console.log(InitialData);
 render(
-  <Provider store={AppStore}>
-    <HashRouter>
-      <App data={InitialData} />
-    </HashRouter>
+  <Provider store={appStore}>
+    <App data={InitialData} />
   </Provider>
   , document.getElementById('react-mount')
 );

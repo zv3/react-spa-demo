@@ -1,8 +1,10 @@
 .progress-bar {
     position: relative;
     width: 100%;
-    height: 25px;
+    height: 30px;
     background: $color-pending;
+    border: 2px solid rgb(162, 162, 162);
+    box-sizing: content;
 
     &__offset {
         background: $color-success;

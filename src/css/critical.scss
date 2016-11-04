@@ -7,14 +7,14 @@
 //   'components/_map',
 //   'components/_header',
 //   'components/_controls';
-
-
 @import 'foundation-sites/scss/foundation';
 
 // @include foundation-everything;
 @include foundation-typography;
 @include foundation-label;
+@include foundation-button;
+@include foundation-forms;
 // @include foundation-flex-classes;
 // @include foundation-flex-grid;
 
-@import 'base/layout'
+@import 'base/layout';

@@ -4,7 +4,6 @@ var webpackDevMiddleware = require('webpack-dev-middleware'),
     webpackConfig = require('./webpack.config.js'),
     autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync'),
-    prerender = require('react-prerender'),
     replace = require('gulp-replace'),
     htmlmin = require('gulp-htmlmin'),
     webpack = require('webpack'),
@@ -42,20 +41,6 @@ var config = {
       collapseWhitespace: true,
       removeComments: true,
       minifyJS: true
-    }
-  },
-  prerender: {
-    target: path.join(__dirname, 'dist/index.html'),
-    component: 'js/components/App',
-    mount: '#react-mount',
-    requirejs: {
-      baseUrl: path.join(__dirname, 'build'),
-      paths: { 'js': 'js' },
-      map: {
-        ignorePatterns: [/esri\//, /dojo\//, /dijit\//],
-        moduleRoot: path.join(__dirname, 'dist/js'),
-        remapModule: 'js/config'
-      }
     }
   }
 };
@@ -109,10 +94,6 @@ gulp.task('sass-build', function () {
       sourceComments: 'map',
       sourceMap: 'sass'
     })
-    // .pipe(autoprefixer({
-    //   browsers: ['last 2 versions'],
-    //   cascade: false
-    // }))
     .on('error', sass.logError))
     .pipe(gulp.dest(config.scss.build));
 });
@@ -120,16 +101,17 @@ gulp.task('sass-build', function () {
 gulp.task('sass-dist', function () {
   return gulp.src(config.scss.src)
     .pipe(sass({
+      errLogToConsole: true,
       outputStyle: 'compressed',
       includePaths: ['bower_components', 'node_modules'],
-      sourceComments: 'map',
       sourceMap: 'sass'
     })
-    // .pipe(autoprefixer({
-    //   browsers: ['last 2 versions'],
-    //   cascade: false
-    // }))
     .on('error', sass.logError))
+    .pipe(gulp.dest(config.scss.dist))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(gulp.dest(config.scss.dist));
 });
 
@@ -145,13 +127,9 @@ gulp.task('html-inject-build', ['sass-build'], function () {
 
 gulp.task('html-inject-dist', ['sass-dist'], function () {
   return gulp.src(config.html.src)
-    .pipe(replace('<!-- inject:app.css -->', '<style>' + fs.readFileSync(config.html.style.prod, 'utf8') + '</style>'))
+    .pipe(replace('<!-- inject:app.css -->', '<link rel="stylesheet" href="/css/app.css">'))
     .pipe(htmlmin(config.html.minOptions))
     .pipe(gulp.dest(config.html.dist));
-});
-
-gulp.task('prerender', function () {
-  prerender(config.prerender);
 });
 
 gulp.task('start', ['sass-watch', 'html-inject-build', 'fonts-build', 'html-watch']);

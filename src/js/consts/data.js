@@ -99,7 +99,7 @@ const data = [
     owner       : 'samy',
     startTimeTs : 1397818380,
     metrics     : {
-      progressPercent : 0,
+      progressPercent : 100,
       state           : PROCESS_STATE_FAILED,
       test            : {
         score : 64,
@@ -189,7 +189,7 @@ const data = [
     owner       : 'samy',
     startTimeTs : 1397721060,
     metrics     : {
-      progressPercent : 51,
+      progressPercent : 100,
       state           : PROCESS_STATE_FAILED,
       test            : {
         score : 64,

@@ -1,13 +1,13 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import {async, logger} from 'js/utils/middleware';
-import appReducer from 'js/reducers/appReducer';
+import reducer from 'js/reducers/index';
 
 const middleware = [async];
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // Remove the logger for production
 middleware.push(logger);
 
 export default createStore(
-  appReducer,
-  applyMiddleware(...middleware)
+  reducer,
+  composeEnhancers(applyMiddleware(...middleware))
 );

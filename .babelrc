@@ -1,16 +1,18 @@
 {
+  "presets": [
+    "es2015",
+    "stage-0",
+    "react"
+  ],
+  "plugins": [
+    "flow-react-proptypes",
+    "transform-flow-strip-types"
+  ],
   "env": {
-    "prerender": {
-      "presets": ["es2015", "stage-0", "react"],
+    "test": {
       "plugins": [
-        "flow-react-proptypes",
-        "transform-es2015-modules-amd",
-        "transform-flow-strip-types"
-      ]      
+        "transform-es2015-modules-commonjs"
+      ]
     }
-  },
-  "ignore": [
-    "/build/",
-    "/node_modules/"
-  ]
+  }
 }

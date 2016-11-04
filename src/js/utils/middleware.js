@@ -1,7 +1,7 @@
 /* @flow */
 const styles = {
-  actionType: 'font-weight:bold;font-size:1.1em',
-  stateLabel: 'color:blue;'
+  actionType : 'font-weight:bold;font-size:1.1em',
+  stateLabel : 'color:blue;'
 };
 
 /**

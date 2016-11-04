@@ -5,77 +5,23 @@ import { ITEM_STATE_REJECTED, ITEM_STATE_SUCCEEDED, ITEM_STATE_PENDING, ITEM_STA
 import React from 'react';
 import { Match, Link } from 'react-router';
 import { TransitionMotion, spring } from 'react-motion';
+import { connect } from 'react-redux';
 import ProgressBar from 'js/components/ProgressBar';
 import TableRowExpanded from 'js/components/TableRowExpanded';
 import classNames from 'classnames';
 
 type Props = {
-  item : {
-    id : string,
-    type : string,
-    owner : ?string,
-    startTimeTs : ?number,
-    metrics: {
-      progressPercent : number,
-      state : string,
-      test : {
-        score : number,
-        state : string
-      },
-      maintainability : {
-        score : number,
-        state : string
-      },
-      security : {
-        score : number,
-        state : string
-      },
-      workmanship : {
-        score : number,
-        state : string
-      }
-    },
-    build: {
-      progressPercent : number,
-      state : string,
-      startTimeTs : ?number
-    },
-    unitTest: {
-      progressPercent : number,
-      state : string,
-      passed : number,
-      failed : number,
-      coveragePercent : number
-    },
-    functionalTest: {
-      progressPercent : number,
-      state : string,
-      passed : number,
-      failed : number,
-      coveragePercent : number
-    }
-  }
+  location: Object | string,
+  item: AppItem
 };
 
-export default class TableRow extends React.Component {
-  itemRowStateConst: string
+export class TableRow extends React.Component {
   props: Props
-
-  static contextTypes = {
-    location: React.PropTypes.object.isRequired
-  }
 
   constructor(props: Props) {
     super(props);
 
-    this.itemRowStateConst = this.itemState();
-  }
-
-  onClickRow: () => void = () => {
-    if (this.itemRowStateConst !== ITEM_STATE_PENDING &&
-      this.itemRowStateConst !== ITEM_STATE_RUNNING) {
-      // this.props.onClickRowHandler(this.props.item.id);
-    }
+    this.props.item.state = this.itemState();
   }
 
   itemState(): string {
@@ -112,7 +58,7 @@ export default class TableRow extends React.Component {
   render() {
     let startDateTime, itemRowState;
 
-    const { item } = this.props;
+    const { item, location } = this.props;
 
     let rowClasses = classNames({
       'item'           : true,
@@ -124,16 +70,16 @@ export default class TableRow extends React.Component {
       startDateTime = new Date(item.startTimeTs * 1000).toLocaleString();
     }
 
-    if (this.itemRowStateConst === ITEM_STATE_PENDING) {
+    if (item.state === ITEM_STATE_PENDING) {
       rowClasses += ' item--pending';
       itemRowState = 'Pending';
-    } else if (this.itemRowStateConst === ITEM_STATE_RUNNING) {
+    } else if (item.state === ITEM_STATE_RUNNING) {
       rowClasses += ' item--running';
       itemRowState = 'Running';
-    } else if (this.itemRowStateConst === ITEM_STATE_SUCCEEDED && item.type === ITEM_TYPE_FIREWALL) {
+    } else if (item.state === ITEM_STATE_SUCCEEDED && item.type === ITEM_TYPE_FIREWALL) {
       rowClasses += ' item--succeeded';
       itemRowState = 'Accepted';
-    } else if (this.itemRowStateConst === ITEM_STATE_SUCCEEDED && item.type === ITEM_TYPE_BUILD) {
+    } else if (item.state === ITEM_STATE_SUCCEEDED && item.type === ITEM_TYPE_BUILD) {
       rowClasses += ' item--succeeded';
       itemRowState = 'Complete';
     } else {
@@ -143,27 +89,31 @@ export default class TableRow extends React.Component {
 
     return (
       <div className={rowClasses}>
-        <TableRowLink itemId={item.id}>
-          <div className="item__icon">&nbsp;</div>
-          <div className="item__id">{item.id}</div>
-          <div className="item__owner">{item.owner}</div>
-          <div className="item__startTime">{startDateTime}</div>
-          <div className="item__state">{itemRowState}</div>
-          <div className={TableRow.processClasses(item.metrics.state)}>
+        <TableRowLink item={item} location={location}>
+          <div className="table-column item__icon">&nbsp;</div>
+          <div className="table-column item__id">{item.id}</div>
+          <div className="table-column item__owner">{item.owner ? item.owner : '\u2014'}</div>
+          <div className="table-column item__startTime">{startDateTime ? startDateTime : '\u2014'}</div>
+          <div className="table-column item__state">{itemRowState}</div>
+          <div className={'table-column ' + TableRow.processClasses(item.metrics.state)}>
             <ProgressBar percent={item.metrics.progressPercent} />
           </div>
-          <div className={TableRow.processClasses(item.build.state)}>
+          <div className={'table-column ' + TableRow.processClasses(item.build.state)}>
             <ProgressBar percent={item.build.progressPercent} />
           </div>
-          <div className={TableRow.processClasses(item.unitTest.state)}>
+          <div className={'table-column ' + TableRow.processClasses(item.unitTest.state)}>
             <ProgressBar percent={item.unitTest.progressPercent} />
           </div>
-          <div className={TableRow.processClasses(item.functionalTest.state)}>
+          <div className={'table-column ' + TableRow.processClasses(item.functionalTest.state)}>
             <ProgressBar percent={item.functionalTest.progressPercent} />
           </div>
         </TableRowLink>
 
-        <MatchWithAnimation pattern={`/items/${item.id}`} render={() => <TableRowExpanded item={item} />} />
+        <MatchWithAnimation
+          location={location}
+          pattern={`/items/${item.id}`}
+          render={() => <TableRowExpanded item={item} />}
+        />
       </div>
     );
   }
@@ -171,8 +121,8 @@ export default class TableRow extends React.Component {
 
 const MatchWithAnimation = ({ render, ...rest }) => {
   const willLeave = () => ({
-    zIndex       : 1,
-    'max-height' : spring(0)
+    zIndex    : 1,
+    maxHeight : spring(0)
   });
 
   return (
@@ -182,14 +132,12 @@ const MatchWithAnimation = ({ render, ...rest }) => {
         styles={matched ? [{
           key   : props.location.pathname,
           style : {
-            'max-height' : 500,
-            'overflow'   : 'hidden'
-          },
-          data  : props
+            maxHeight: spring(500)
+          }
         }] : []}
       >
         {interpolatedStyles => (
-          <div>
+          <div style={{overflow: 'hidden'}}>
             {interpolatedStyles.map(config => (
               <div key={config.key} style={config.style}>
                 {render()}
@@ -204,24 +152,28 @@ const MatchWithAnimation = ({ render, ...rest }) => {
 
 class TableRowLink extends React.Component {
   props: {
-    itemId: string
-  }
-
-  static contextTypes = {
-    location: React.PropTypes.object.isRequired
+    item: AppItem,
+    location: Object | string
   }
 
   render() {
-    const { itemId, ...rest } = this.props,
-      isActive = this.context.location.pathname === `/items/${itemId}`;
+    const { item, location, ...rest } = this.props,
+      isActive = location.pathname === `/items/${item.id}`;
 
-    return (
+    return item.state === ITEM_STATE_PENDING ? (<div className="table-row">{this.props.children}</div>) : (
       <Link
-        to={isActive ? '/' : `/items/${itemId}`} // should link to path '/' when this row is active
-        className="item-row"
-        activeClassName={!isActive ? '' : 'item-row--active'}
+        to={isActive ? '/' : `/items/${item.id}`} // should link to path '/' when this row is active
+        location={location}
+        className="table-row"
+        activeClassName={!isActive ? '' : 'table-row--active'}
         {...rest}
       />
     );
   }
 }
+
+const mapStateToAppProps = (state) => ({
+  location: state.location
+});
+
+export default connect(mapStateToAppProps)(TableRow);

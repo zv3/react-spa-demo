@@ -28,6 +28,7 @@ module.exports = {
       loader: 'babel',
       exclude: /\/(node_modules|build)\//,
       query: {
+        babelrc: false,
         presets: ['es2015', 'stage-0'],
         plugins: ['transform-runtime', 'transform-flow-strip-types']
       }
@@ -37,6 +38,7 @@ module.exports = {
       loader: 'babel',
       exclude: /\/(node_modules|build)\//,
       query: {
+        babelrc: false,
         presets: ['es2015', 'stage-0', 'react'],
         plugins: ['transform-runtime', 'flow-react-proptypes', 'transform-flow-strip-types']
       }

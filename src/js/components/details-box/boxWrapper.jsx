@@ -2,6 +2,7 @@
 import { PROCESS_STATE_COMPLETED, PROCESS_STATE_FAILED, PROCESS_STATE_RUNNING, PROCESS_STATE_PENDING } from 'js/consts/processStates';
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router';
 
 type Props = {
   title : string,
@@ -9,7 +10,7 @@ type Props = {
   children ?: React.Element<*>
 };
 
-export default class DetailBoxWrapper extends Component {
+export default class BoxWrapper extends Component {
   props: Props
 
   boxCssClasses(state: string = PROCESS_STATE_PENDING) {
@@ -34,6 +35,10 @@ export default class DetailBoxWrapper extends Component {
     );
   }
 
+  renderContentWrapper() {
+
+  }
+
   render() {
     const content =
       this.props.state !== PROCESS_STATE_PENDING && this.props.children || this.renderPendingBox();
@@ -41,8 +46,13 @@ export default class DetailBoxWrapper extends Component {
     return (
       <div className={this.boxCssClasses(this.props.state)}>
         <p className="details-box__title">{this.props.title}</p>
-          {content}
+        {content}
       </div>
     );
   }
 }
+//
+// const BoxPopupLink = ({ itemId, type, ...rest }) => (
+//   <Link to={`/item/${itemId}/${type}`} {...rest} />
+// );
+

@@ -7,7 +7,7 @@ module.exports = {
   entry: path.join(__dirname, 'src/js/main'),
   output: {
     path: path.resolve('dist/js'),
-    filename: 'main.jsx',
+    filename: 'main.js',
     libraryTarget: 'amd'
   },
   module: {
@@ -32,7 +32,6 @@ module.exports = {
     }
     ]
   },
-  externals: [helpers.esriPackages],
   resolve: {
     alias: helpers.modules,
     extensions: [ "", ".js", ".jsx" ]

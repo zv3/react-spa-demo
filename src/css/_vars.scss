@@ -12,7 +12,18 @@ $lightgray-border: #aaa;
 $error-red: #B91913;
 
 $color-warning : #d6ca3a;
-$color-pending : #b3b3b3;
+$color-pending : #cacaca;
 $color-running : #13acf5;
-$color-failed  : #e43434; 
+$color-failed  : #e43434;
 $color-success : #7aab4e;
+
+$color-result-failed  : #e43434;
+$color-result-success : #FCB421;
+
+$foundation-palette: (
+    primary: #4927b0,
+    secondary: #777,
+    success: #3adb76,
+    warning: #ffae00,
+    alert: #ec5840
+);
