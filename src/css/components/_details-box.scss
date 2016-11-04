@@ -4,6 +4,7 @@
     border: 2px solid transparent;
     text-align: left;
     position: relative;
+    cursor: pointer;
 
     &--completed {
         border-color: $color-success;
@@ -63,18 +64,18 @@
     &__content {
         display: flex;
         flex-wrap: wrap;
-    }
 
-    dd {
-        font-weight: 400;
-    }
+        dd {
+            font-weight: 400;
+        }
 
-    dt {
-        // position: absolute;
-        margin-top: 7px;
-        bottom: 0;
-        word-wrap: break-word;
-        font-weight: 400;
+        dt {
+            // position: absolute;
+            margin-top: 7px;
+            bottom: 0;
+            word-wrap: break-word;
+            font-weight: 400;
+        }
     }
 
     &__row {
@@ -171,6 +172,7 @@
 .results-box {
     border: none;
     text-align: center;
+    cursor: default;
 
     &__result-text--sm {
         font-size: 16px;
