@@ -20,7 +20,7 @@ before_script:
   - npm prune
 before_deploy:
   - npm run dist
-  - tree
+  - tree dist
 deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY
@@ -28,7 +28,8 @@ deploy:
   bucket: dzv3
   endpoint: dzv3.s3-website-us-east-1.amazonaws.com
   upload-dir: sfe-crossover-test
-  local-dir: "./dist"
+  local-dir: dist
+  skip_cleanup: true
   region: us-east-1
   acl: public_read
   detect_encoding: true
