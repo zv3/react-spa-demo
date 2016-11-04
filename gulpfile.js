@@ -127,7 +127,7 @@ gulp.task('html-inject-build', ['sass-build'], function () {
 
 gulp.task('html-inject-dist', ['sass-dist'], function () {
   return gulp.src(config.html.src)
-    .pipe(replace('<!-- inject:app.css -->', '<link rel="stylesheet" href="/css/app.css">'))
+    .pipe(replace('<!-- inject:app.css -->', '<link rel="stylesheet" href="css/app.css">'))
     .pipe(htmlmin(config.html.minOptions))
     .pipe(gulp.dest(config.html.dist));
 });
