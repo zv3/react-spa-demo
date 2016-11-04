@@ -56,7 +56,7 @@ const FunctionalTestBox = ({ functionalTest } : Props) => {
             <dl className="functional-test__coverage-result">
               <div className="progress__offset" style={{width: `${functionalTest.coveragePercent}%`}}></div>
               <dd>{functionalTest.coveragePercent}%</dd>
-              <dt>tests passed</dt>
+              <dt>code covered</dt>
             </dl>
           </div>
         </div>

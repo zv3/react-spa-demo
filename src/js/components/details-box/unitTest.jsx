@@ -56,7 +56,7 @@ const UnitTestBox = ({ unitTest }: Props) => {
             <dl className="unit-test__coverage-result">
               <div className="progress__offset" style={{width: `${unitTest.coveragePercent}%`}}></div>
               <dd>{unitTest.coveragePercent}%</dd>
-              <dt>tests passed</dt>
+              <dt>code covered</dt>
             </dl>
           </div>
         </div>
