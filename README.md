@@ -1,6 +1,6 @@
 **Purpose**
 
-This application was part of a 3-days timed technical test I took when I applied for the Sr. FrontEnd Engineer position (remote) at CrossOver.com. It was built as an SPA using Facebook's React v15 and a few other React libraries, i.e. Redux (global state handler), react-router v4 (url routing) and chart.js (pie charts).
+This application was part of a 3-days timed technical test I took when I applied for the Sr. FrontEnd Engineer position (remote) at CrossOver.com. It was built (following these [requirements](https://docs.google.com/file/d/0Bz8pV-tN2iDObHItZldCN3NDcEpDazNnVUdkZlFpWjJHaWln/edit)), as a Single-Page-Application using Facebook's React v15 and a few other React libraries, i.e. Redux (global state handler), react-router v4 (url routing) and chart.js (pie charts).
 
 The UI is based on Zurb's Foundation v6 SASS framework, coupled with IcoMoon fonts for the icons used throughout the application (buttons, table row icons, etc).
 
