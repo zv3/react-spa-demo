@@ -1,4 +1,6 @@
-**Purpose**
+#Purpose
+
+![image](http://dzv3.s3.amazonaws.com/sfe-crossover-test/screenshot.png)
 
 This application was part of a 3-days timed technical test I took when I applied for the Sr. FrontEnd Engineer position (remote) at CrossOver.com. It was built (following these [requirements](https://docs.google.com/file/d/0Bz8pV-tN2iDObHItZldCN3NDcEpDazNnVUdkZlFpWjJHaWln/edit)), as a Single-Page-Application using Facebook's React v15 and a few other React libraries, i.e. Redux (global state handler), react-router v4 (url routing) and chart.js (pie charts).
 
@@ -11,11 +13,11 @@ Workflow tools such as Gulp, Webpack and Babel were also used in the development
 A live demo of this SPA can be viewed in this [link](http://dzv3.s3-website-us-east-1.amazonaws.com/sfe-crossover-test/).
 
 
-**HOW TOs**
+##HOW TOs
   
-  - Run the application locally
+  - **Run the application locally**
     1. Run this command line in your OSX/Linux console: `npm i && npm run`
     2. Hit your browser to `http://localhost:3000/`
 
-  - Run the tests
+  - **Run the tests**
     1. Run this command line in your OSX/Linux console: `npm i && npm t`
