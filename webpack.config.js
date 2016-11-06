@@ -19,19 +19,9 @@ module.exports = {
   },
   module: {
     loaders: [{
-      test: /\.(js|jsx)?$/,
+      test: /\.jsx?$/,
       loader: 'react-hot',
       exclude: /\/(node_modules|build)\//
-    },
-    {
-      test: /\.js?$/,
-      loader: 'babel',
-      exclude: /\/(node_modules|build)\//,
-      query: {
-        babelrc: false,
-        presets: ['es2015', 'stage-0'],
-        plugins: ['transform-runtime', 'transform-flow-strip-types']
-      }
     },
     {
       test: /\.jsx?$/,
