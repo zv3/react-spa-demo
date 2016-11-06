@@ -13,23 +13,15 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         loader: 'babel',
         exclude: /\/(node_modules|build)\//,
         query: {
-          presets: ['es2015', 'stage-0'],
+          babelrc: false,
+          presets: ['es2015', 'stage-0', 'react'],
           plugins: ['transform-runtime', 'transform-flow-strip-types']
         }
-      },
-    {
-      test: /\.jsx?$/,
-      loader: 'babel',
-      exclude: /\/(node_modules|build)\//,
-      query: {
-        presets: ['es2015', 'stage-0', 'react'],
-        plugins: ['transform-runtime', 'transform-flow-strip-types']
       }
-    }
     ]
   },
   resolve: {
