@@ -16,8 +16,8 @@ A live demo of this SPA can be viewed in this [link](http://dzv3.s3-website-us-e
 ##HOW TOs
   
   - **Run the application locally**
-    1. Run this command line in your OSX/Linux console: `npm i && npm run`
-    2. Hit your browser to `http://localhost:3000/`
+    1. Run this command line in your OSX/Linux console: `npm i && npm start`
+    2. Hit your browser to [http://localhost:3000/](http://localhost:3000/)
 
   - **Run the tests**
     1. Run this command line in your OSX/Linux console: `npm i && npm t`
