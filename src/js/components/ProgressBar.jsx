@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 type Props = {
   percent : number | string,
@@ -6,13 +6,13 @@ type Props = {
 };
 
 const ProgressBar = ({ percent, bgColor }: Props) => {
-  const styleProp = { width: `${percent}%`, background: bgColor };
+  const styleProp = { width: `${percent}%`, background: bgColor }
 
   return (
-    <div className="progress-bar">
-      <div className="progress-bar__offset" style={styleProp} />
+    <div className='progress-bar'>
+      <div className='progress-bar__offset' style={styleProp} />
     </div>
-  );
-};
+  )
+}
 
-export default ProgressBar;
+export default ProgressBar

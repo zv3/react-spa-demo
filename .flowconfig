@@ -6,7 +6,7 @@ src/{,**/}*.jsx
 .*/node_modules/madge/*
 .*/node_modules/babel-plugin-flow-react-proptypes/*
 [libs]
-declarations
+declarations/
 [options]
 module.name_mapper='js'->'<PROJECT_ROOT>/src/js/'
 module.name_mapper='libs'->'<PROJECT_ROOT>/build/libs/'

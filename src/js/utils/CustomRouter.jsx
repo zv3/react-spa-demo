@@ -1,10 +1,10 @@
 /* @flow */
-import React from 'react';
-import createHashHistory from 'history/createHashHistory';
-import History from 'react-router/History';
-import { StaticRouter } from 'react-router';
-import { addLeadingSlash } from 'history/PathUtils';
-import { changeLocation } from 'js/actions';
+import React from 'react'
+import createHashHistory from 'history/createHashHistory'
+import History from 'react-router/History'
+import { StaticRouter } from 'react-router'
+import { addLeadingSlash } from 'history/PathUtils'
+import { changeLocation } from 'js/actions'
 
 type DispatchingRouterProps = {
   store: Object,
@@ -17,23 +17,23 @@ type DispatchingRouterProps = {
 class DispatchingRouter extends React.Component {
   props: DispatchingRouterProps
 
-  constructor(props: DispatchingRouterProps) {
-    super(props);
-    this.onLocationChange(this.props.location);
+  constructor (props: DispatchingRouterProps) {
+    super(props)
+    this.onLocationChange(this.props.location)
   }
 
-  onLocationChange(location: Object) {
-    this.props.store.dispatch(changeLocation(location));
+  onLocationChange (location: Object) {
+    this.props.store.dispatch(changeLocation(location))
   }
 
-  componentWillReceiveProps(nextProps: DispatchingRouterProps) {
-    this.onLocationChange(nextProps.location);
+  componentWillReceiveProps (nextProps: DispatchingRouterProps) {
+    this.onLocationChange(nextProps.location)
   }
 
   createHref = (path: string) => (`#${addLeadingSlash(path)}`);
 
-  render() {
-    const { history, action, location, basename, ...props } = this.props;
+  render () {
+    const { history, action, location, basename, ...props } = this.props
 
     return (
       <StaticRouter
@@ -46,7 +46,7 @@ class DispatchingRouter extends React.Component {
         createHref={this.createHref}
         {...props}
       />
-    );
+    )
   }
 }
 
@@ -67,8 +67,8 @@ class CustomRouter extends React.Component {
     store: React.PropTypes.object
   }
 
-  render() {
-    const { basename, getUserConfirmation, store, ...props } = this.props;
+  render () {
+    const { basename, getUserConfirmation, store, ...props } = this.props
 
     return (
       <History
@@ -89,8 +89,8 @@ class CustomRouter extends React.Component {
           />
         )}
       </History>
-    );
+    )
   }
 }
 
-export default CustomRouter;
+export default CustomRouter

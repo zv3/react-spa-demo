@@ -46,3 +46,7 @@ declare type AppItem = {
   },
   state: ?string
 };
+
+declare type AppState = {
+  location: Object
+}

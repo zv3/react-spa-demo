@@ -1,3 +1,5 @@
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 #Purpose
 
 ![image](http://dzv3.s3.amazonaws.com/sfe-crossover-test/screenshot.png)
@@ -10,11 +12,11 @@ On the Unit Testing side, Facebook's Jest and AirBnb's Enzyme libraries were use
 
 Workflow tools such as Gulp, Webpack and Babel were also used in the development of this app for tasks such as ES6/7 code transpiling to ES5, optimization related tasks like stripping flowtype code, autoprefixing CSS rules with vendor-specific prefixes for multi browser support and performing minification on the resulting javascript/css files.
 
-A live demo of this SPA can be viewed in this [link](http://dzv3.s3-website-us-east-1.amazonaws.com/sfe-crossover-test/).
+A live demo of this SPA can be viewed [here](http://dzv3.s3-website-us-east-1.amazonaws.com/sfe-crossover-test/).
 
 
 ##HOW TOs
-  
+
   - **Run the application locally**
     1. Run this command line in your OSX/Linux console: `npm i && npm start`
     2. Hit your browser to [http://localhost:3000/](http://localhost:3000/)
