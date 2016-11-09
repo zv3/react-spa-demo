@@ -43,7 +43,7 @@ const FirewallRejected = ({ reason }: FailingResultsProps) => (
 )
 
 const FirewallAccepted = () => (
-  <ResultsBoxWrapper state='completed" type="firewall'>
+  <ResultsBoxWrapper state='completed' type='firewall'>
     <p className='results-box__result-text results-box__result-text--sm'>Change Accepted</p>
     <p className='results-box__result-text results-box__result-text--lg'>Auto-Merged</p>
     <button className='button results-box__action-btn'><i className='icon-git-merge' /> Merge Build</button>
@@ -102,4 +102,5 @@ const ResultsBox = ({ item }: ResultsBoxProps) => {
   return void 0
 }
 
+export { BuildFailed, PendingResults, BuildSucceeded, FirewallAccepted, FirewallRejected }
 export default ResultsBox

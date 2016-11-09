@@ -13,6 +13,6 @@ describe('Component: TableRowExpanded', () => {
   it('renders without exploding', () => {
     expect(
       shallow(<TableRowExpanded {...baseProps} />).length
-    ).toEqual(1)
+    ).toBe(1)
   })
 })
