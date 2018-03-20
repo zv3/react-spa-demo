@@ -1,21 +1,21 @@
 [![Build Status](https://travis-ci.org/zv3/react-spa-demo.svg?branch=master)](https://travis-ci.org/zv3/react-spa-demo) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-#Purpose
+#Architecture
 
 ![image](http://dzv3.s3.amazonaws.com/sfe-crossover-test/screenshot.png)
 
-This application was part of a 3-days timed technical test I took when I applied for the Sr. FrontEnd Engineer position (remote) at CrossOver.com. It was built (following these [requirements](https://docs.google.com/file/d/0Bz8pV-tN2iDObHItZldCN3NDcEpDazNnVUdkZlFpWjJHaWln/edit)), as a Single-Page-Application using Facebook's React v15 and a few other React libraries, i.e. Redux (global state handler), react-router v4 (url routing) and chart.js (pie charts).
+This SPA type of app was built using Facebook's React v15 and a few other React libraries, i.e. Redux (state manager), react-router v4 (url routing) and chart.js (pie charts).
 
-The UI is based on Zurb's Foundation v6 SASS framework, coupled with IcoMoon fonts for the icons used throughout the application (buttons, table row icons, etc).
+The UI is based on the Zurb's Foundation v6 SASS framework, coupled with IcoMoon fonts for the icons used throughout the app (buttons, table row icons, etc).
 
-On the Unit Testing side, Facebook's Jest and AirBnb's Enzyme libraries were used to test major React components in a browser environment.
+Facebook's Jest and AirBnb's Enzyme libraries were used to test major React components in a browser environment.
 
-Workflow tools such as Gulp, Webpack and Babel were also used in the development of this app for tasks such as ES6/7 code transpiling to ES5, optimization related tasks like stripping flowtype code, autoprefixing CSS rules with vendor-specific prefixes for multi browser support and performing minification on the resulting javascript/css files.
+Workflow tools such as Gulp, Webpack and Babel were also part in the development of the app for tasks such as ES6/7 code transpiling to ES5, optimization related tasks like stripping flowtype code, autoprefixing CSS rules with vendor-specific prefixes for multi browser support and performing minification on the resulting javascript/css files.
 
-A live demo of this SPA can be viewed [here](http://dzv3.s3-website-us-east-1.amazonaws.com/sfe-crossover-test/).
+A live demo of the app can be viewed [here](http://dzv3.s3-website-us-east-1.amazonaws.com/sfe-crossover-test/).
 
 
-##HOW TOs
+##HOW TO RUN
 
   - **Run the application locally**
     1. Run this command line in your OSX/Linux console: `npm i && npm start`
