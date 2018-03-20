@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/zv3/react-spa-demo.svg?branch=master)](https://travis-ci.org/zv3/react-spa-demo) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-#Architecture
+## Architecture
 
 ![image](http://dzv3.s3.amazonaws.com/sfe-crossover-test/screenshot.png)
 
@@ -15,7 +15,7 @@ Workflow tools such as Gulp, Webpack and Babel were also part in the development
 A live demo of the app can be viewed [here](http://dzv3.s3-website-us-east-1.amazonaws.com/sfe-crossover-test/).
 
 
-##HOW TO RUN
+## HOW TOs
 
   - **Run the application locally**
     1. Run this command line in your OSX/Linux console: `npm i && npm start`
