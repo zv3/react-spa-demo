@@ -1,7 +1,7 @@
 {
-  "name": "crossovertest",
+  "name": "react-spa-demo",
   "version": "0.1.0-SNAPSHOT",
-  "description": "Crossover.com timed technical test",
+  "description": "A React.js based single page application demo",
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp serve & gulp start",
