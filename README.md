@@ -1,16 +1,10 @@
 [![Build Status](https://travis-ci.org/zv3/react-spa-demo.svg?branch=master)](https://travis-ci.org/zv3/react-spa-demo) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-## Architecture
-
 ![image](http://dzv3.s3.amazonaws.com/sfe-crossover-test/screenshot.png)
 
-This SPA type of app was built using Facebook's React v15 and a few other React libraries, i.e. Redux (state manager), react-router v4 (url routing) and chart.js (pie charts).
+This is a single page React app that was built as part of a coding challenge which required the implementation and design to follow the provided mockup at the pixel level and the specifications as described.
 
-The UI is based on the Zurb's Foundation v6 SASS framework, coupled with IcoMoon fonts for the icons used throughout the app (buttons, table row icons, etc).
-
-Facebook's Jest and AirBnb's Enzyme libraries were used to test major React components in a browser environment.
-
-Workflow tools such as Gulp, Webpack and Babel were also part in the development of the app for tasks such as ES6/7 code transpiling to ES5, optimization related tasks like stripping flowtype code, autoprefixing CSS rules with vendor-specific prefixes for multi browser support and performing minification on the resulting javascript/css files.
+The technology stack employed consists of React v15 and a few other React libraries like Redux (as state manager) and React Router (for url routing) as well as a charting library (chart.js) to draw the needed pie charts. On the UI design side Zurb's Foundation v6 SASS framework was used as the CSS framework. Facebook's Jest and AirBnb's Enzyme libraries were also used as testing frameworks in a browser environment.
 
 A live demo of the app can be viewed [here](http://dzv3.s3-website-us-east-1.amazonaws.com/sfe-crossover-test/).
 
